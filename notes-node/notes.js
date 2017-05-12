@@ -34,6 +34,7 @@ var addNote = (title, body) => {
   if (duplicateNotes.length == 0) {
     notes.push(note);
     saveNotes('notes-data.json', notes)
+    return note;
   }
 };
 
