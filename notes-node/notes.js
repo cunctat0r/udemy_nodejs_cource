@@ -64,6 +64,7 @@ var removeNote = (title) => {
   if (filtered.length > 0) {
     saveNotes('notes-data.json', filtered);
   }
+  return notes.length !== filtered.length;
 };
 
 module.exports = {
