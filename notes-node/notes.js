@@ -7,11 +7,10 @@ const getNotes = (fname) => {
   
   try {
     var notesString = fs.readFileSync(fname);
-    notes = JSON.parse(notesString);
+    return JSON.parse(notesString);
   } catch (e) {
-
+    return [];
   }
-  return notes;
 };
 
 const saveNotes = (fname, notes) => {
