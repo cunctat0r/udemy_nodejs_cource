@@ -39,13 +39,15 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
-  var notes = getNotes('notes-data.json');
-  if (notes.length > 0) {
-    notes.forEach((note) => showNote(note));
-    console.log('------------');
-  } else {
-    console.log('There are no notes');
-  }
+  return getNotes('notes-data.json');
+  //if (notes.length > 0) {
+    //notes.forEach((note) => showNote(note));
+    //console.log('------------');
+  //  return notes;
+  //} else {
+    //console.log('There are no notes');
+  //  return [];
+  //}
 };
 
 var getNote = (title) => {
