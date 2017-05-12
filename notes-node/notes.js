@@ -3,8 +3,6 @@ console.log('Starting notes.js');
 const fs = require('fs');
 
 const getNotes = (fname) => {
-  var notes = [];
-  
   try {
     var notesString = fs.readFileSync(fname);
     return JSON.parse(notesString);
