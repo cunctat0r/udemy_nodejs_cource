@@ -52,9 +52,7 @@ var getNote = (title) => {
   var notes = getNotes('notes-data.json'); 
   var filtered = notes.filter((note) => note.title === title);
   if (filtered.length > 0) {
-    showNote(filtered[0]);
-  } else {
-    console.log('There is no such note');
+    return filtered[0];
   }
 };
 
