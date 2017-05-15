@@ -1,4 +1,3 @@
-console.log('Starting app.');
 
 const fs = require('fs');
 const _ = require('lodash');
@@ -8,10 +7,6 @@ const notes = require('./notes.js');
 
 const argv = yargs.argv;
 var command = argv._[0];
-
-console.log('Process:', process.argv);
-console.log('Yargs:', argv);
-
 
 if (command === 'add') {
   var note = notes.addNote(argv.title, argv.body);
