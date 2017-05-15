@@ -15,10 +15,15 @@ const saveNotes = (fname, notes) => {
     fs.writeFileSync(fname, JSON.stringify(notes));
 };
 
-const showNote = (note) => {
-  console.log('------------');
-  console.log('Title:', note.title);
-  console.log('Body:', note.body);
+const showNote = (note, okMessage, errMessage) => {
+  if (note) {
+    console.log(okMessage);
+    console.log('------------');
+    console.log('Title:', note.title);
+    console.log('Body:', note.body);
+  } else {
+    console.log(errMessage);
+  }
 };
 
 var addNote = (title, body) => {
@@ -71,5 +76,6 @@ module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  showNote
 };
