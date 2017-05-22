@@ -16,10 +16,10 @@ const argv = yargs
   .alias('help', 'h')
   .argv;
 
-console.log(argv);
+var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(argv.address)}`;
 
 request({
-  url: 'https://maps.googleapis.com/maps/api/geocode/json?address=68%20Studencheskaya%20street%20Engels',
+  url: url,
   json: true
 }, (error, response, body) => {
   console.log(body.results[0].formatted_address);
