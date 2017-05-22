@@ -26,7 +26,7 @@ request({
     console.log('Unable to connect to Google services.');
   } else if (body.status === 'ZERO_RESULTS') {
     console.log('Unable to find address');
-  } else {
+  } else if (body.status === 'OK'){
     console.log(body.results[0].formatted_address);
     console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
     console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
