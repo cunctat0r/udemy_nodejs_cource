@@ -8,13 +8,15 @@ const getForecast = (address, callback) => {
     json: true
   }, (error, response, body) => {
     if (error) {
-      console.log('Unable to connect to forecast service.');
-    } else if (response.statusCode === 400) {
-      console.log('Unable to fetch weather.');
+      callback('Unable to connect to forecast service.');
+    } else if (response.body === 'Not Found\n') {
+      callback('Unable to fetch weather.');
     } else if (response.statusCode === 200) {
-      callback(`Temperature: ${body.currently.temperature}`);
-      callback(`WindSpeed: ${body.currently.windSpeed}`);
-      callback(`WindBearing: ${body.currently.windBearing}`);
+      callback(undefined, {
+        temperature: body.currently.temperature,
+        windSpeed: body.currently.windSpeed,
+        windBearing: body.currently.windBearing
+      });
     }
   });
 

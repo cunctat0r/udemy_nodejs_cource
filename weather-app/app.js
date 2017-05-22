@@ -39,7 +39,7 @@ forecast.getForecast(address, (errorMessages, results) => {
   if (errorMessages) {
     console.log(errorMessages);
   } else {
-    console.log(JSON.stringify(results));  
+    console.log(JSON.stringify(results, undefined, 2));  
   }
 });
 
