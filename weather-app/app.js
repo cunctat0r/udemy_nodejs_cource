@@ -20,26 +20,13 @@ var addressObject = geocode.geocodeAddress(argv.address, (errorMessage, results)
   if (errorMessage) {
     console.log(errorMessage);
   } else {
-    console.log(JSON.stringify(results, undefined, 2));
-    return results;
+    console.log(results.address);
+    forecast.getForecast(results, (errorMessages, results) => {
+      if (errorMessages) {
+        console.log(errorMessages);
+      } else {
+        console.log(`It's currently ${results.temperature}, but feels like ${results.apparentTemperature}`) 
+      }
+    });    
   }
 });
-
-console.log(addressObject);
-
-const latitude = 49.93572349999999;
-const longitude = 36.2474285;
-
-const address = {
-  latitude,
-  longitude
-};
-
-forecast.getForecast(address, (errorMessages, results) => {
-  if (errorMessages) {
-    console.log(errorMessages);
-  } else {
-    console.log(JSON.stringify(results, undefined, 2));  
-  }
-});
-

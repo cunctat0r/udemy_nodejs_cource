@@ -14,8 +14,7 @@ const getForecast = (address, callback) => {
     } else if (response.statusCode === 200) {
       callback(undefined, {
         temperature: body.currently.temperature,
-        windSpeed: body.currently.windSpeed,
-        windBearing: body.currently.windBearing
+        apparentTemperature: body.currently.apparentTemperature
       });
     }
   });
