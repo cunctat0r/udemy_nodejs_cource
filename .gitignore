@@ -1,3 +1,4 @@
 *.swp
 notes-data.json
 node_modules/
+server.log
