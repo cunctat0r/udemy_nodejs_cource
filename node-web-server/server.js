@@ -1,22 +1,25 @@
 const express = require('express');
+const hbs = require('hbs');
 
 var app = express();
 
+app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (request, response) => {
-  //response.send('<h1>Hello express!</h1>');
-  response.send({
-    name: 'Slava',
-    likes: [
-      'Trains',
-      'Trams'
-    ]
-  });
+  response.render('home.hbs', {
+    pageTitle: 'Home Page',
+    currentYear: new Date().getFullYear(),
+    welcomeMessage: 'Welcome to my home page!'
+  })
 });
 
 app.get('/about', (req, res) => {
-  res.send('About page');
+  //res.send('About page');
+  res.render('about.hbs', {
+    pageTitle: 'About Page',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 app.get('/bad', (req, res) => {
